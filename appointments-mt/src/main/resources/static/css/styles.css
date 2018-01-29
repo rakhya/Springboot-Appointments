@@ -1,0 +1,34 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+h3 {
+	color: blue;
+	font-weight: bold;
+}
+
+.error{
+	display: none;
+	margin-left: 10px;
+}
+
+.error_show{
+	color: red;
+	margin-left: 10px;
+}
+
+input .form-control .invalid{
+	border: 2px solid red;
+}
+
+input .form-control .valid{
+	border: 2px solid green;
+}
