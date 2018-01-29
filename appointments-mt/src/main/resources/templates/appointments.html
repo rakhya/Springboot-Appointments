@@ -6,11 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="/js/functionalities.js"></script>
 </head>
 <body>
@@ -27,30 +30,32 @@
 		<div id="addApps" style="display: none">
 			
 			
-			<form class="form-inline" id="appForm">
+			<form action="/" method="POST" class="form-inline" id="appForm">
 			<button id="addbtn" type="submit" class="btn btn-default">ADD</button>
 			<button id="cancelbtn" type="submit" class="btn btn-default"
 				style="margin-left: 20px; margin-right: 5px">CANCEL</button>
 			<br></br> <br></br>
 				<div class="form-group">
-					<label for="date" style="margin-right: 5px">DATE:</label> <input
-						type="text" class="form-control" id="date"
+					<label for="date" style="margin-right: 5px">DATE:</label> 
+					<input
+						type="text" class="form-control" name="date" id="date"
 						placeholder="Enter date" />
-						<span class="error">This field is required</span>
+					<span class="error">This field is required</span>
 				</div>
 				<br></br> <br></br>
 				<div class="form-group">
-					<label for="time" style="margin-right: 5px">TIME:</label> <input
-						type="text" class="form-control" id="time"
+					<label for="time" style="margin-right: 5px">TIME:</label> 
+					<input
+						type="text" class="form-control" name="time" id="time"
 						placeholder="Enter time" />
-						<span class="error">This field is required</span>
+					<span class="error">This field is required</span>
 				</div>
 				<br></br> <br></br>
 				<div class="form-group">
 					<label for="description" style="margin-right: 5px">DESCRIPTION:</label>
-					<input type="text" class="form-control" id="descinput"
+					<input type="text" class="form-control" name="desc" id="descinput"
 						placeholder="Enter description" />
-						<span class="error">This field is required</span>
+					<span class="error">This field is required</span>
 				</div>
 				<br></br> <br></br>
 			</form>

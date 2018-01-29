@@ -1,8 +1,12 @@
 $(document).ready(function(){
+	
+	//New button
     $("#newbtn").click(function(){
     	$("#addApps").slideToggle("slow");
     	$("#newdiv").hide();
     });
+    
+  //Cancel button
     $("#cancelbtn").click(function(event){
 		event.preventDefault();
     	$("#addApps").hide();
@@ -14,13 +18,7 @@ $(document).ready(function(){
 });
     });
     
-    $('#date').on('input', function() {
-    	var input=$(this);
-    	var is_name=input.val();
-    	if(is_name){input.removeClass("invalid").addClass("valid");}
-    	else{input.removeClass("valid").addClass("invalid");}
-    });
-
+    //Validation time
     $('#time').on('input', function() {
     	var input=$(this);
     	var is_name=input.val();
@@ -28,6 +26,7 @@ $(document).ready(function(){
     	else{input.removeClass("valid").addClass("invalid");}
     });
 
+    //Validation description
     $('#descinput').on('input', function() {
     	var input=$(this);
     	var is_name=input.val();
@@ -35,6 +34,7 @@ $(document).ready(function(){
     	else{input.removeClass("valid").addClass("invalid");}
     });
     
+    //Add button
     $("#addbtn").click(function(event){
     	var error_free=true;
     	$('form input').each(function(){
@@ -49,53 +49,12 @@ $(document).ready(function(){
     		event.preventDefault(); 
     	}
     	else{
-    		alert('No errors: Form will be submitted');
-    		var data = {};
-    		keyArr = ["date","time","description"];
-    		var i = 0;
-    		$("form input").each(function() {
-    			 data[keyArr[i]] = $(this).val();
-    			 i = i+1;
-    			});
-    		ajaxPost(data);
-    		event.preventDefault();
-    		location.reload();
+    		alert('No errors: Form data will be submitted');
     	}
     });
     
-function ajaxPost(appData){
-		
-		$.ajax({
-			type : "POST",
-			contentType : "application/json",
-			data : JSON.stringify(appData),
-			dataType : 'json',
-			url : window.location + "api/add/appointment",
-			success : function(result) {
-				if(result.status == "Done"){
-					console.log("successfully posted done")
-					/*$("#postResultDiv").html("<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" + 
-												"Post Successfully! <br>" +
-												"---> Customer's Info: FirstName = " + 
-												result.data.firstname + " ,LastName = " + result.data.lastname + "</p>");*/
-				}else{
-					console.log("sucessfully posted")
-					//$("#postResultDiv").html("<strong>Error</strong>");
-				}
-				console.log(result);
-			}/*,
-			error : function(e) {
-				alert("Error!")
-				console.log("ERROR: ", e);
-			}*/
-		});
-		
-		// Reset FormData after Posting
-		//resetData();
 
-	}
-
-//GET REQUEST
+//AJAX GET Appointments
 $("#searchbtn").click(function(){
 	var desc = $("#descsearch").val().trim();
 	if(desc==""){
@@ -129,6 +88,7 @@ function ajaxGet(desc){
 	});	
 }
 
+//Get Appointments on home page load
 $.ajax({
 	type : "GET",
 	url : window.location + "api/appointments",
@@ -139,22 +99,34 @@ $.ajax({
 			$.each(result, function (index, value) {
 				$("#appsTable tr:last").after("<tr><td>"+value.date+"</td><td>"+value.time+"</td><td>"+value.description+"</td></tr>");
 			});
-		}
-		else{
-			console.log("size of array: "+result.length);
-		}				
+		}			
 	},
 	error : function(e) {
 		alert("There is an error: ", e);
 	}
 });
 
-
+//Enter key to search for description
 $("#descsearch").keyup(function(event) {
     if (event.keyCode === 13) {
         $("#searchbtn").click();
     }
 });
-    
+
+//date picker and validation
+$( function() {
+    $("#date").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'M dd, yy'
+    }).on('change', function() {
+        if($(this).val()!=""){
+        	$(this).removeClass("invalid").addClass("valid");
+        }
+        else{
+        	$(this).removeClass("valid").addClass("invalid");
+        }
+    });
+  });
     
 });
