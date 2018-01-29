@@ -23,7 +23,6 @@ public class AppointmentController {
 	@RequestMapping(value="/",method=RequestMethod.POST)
 	public String postData(@RequestParam("date") String date,@RequestParam("time") String time,@RequestParam("desc") String desc) {
 		Appointment appointment = new Appointment(date,time,desc);
-		System.out.println("Testing the method");
 		appointmentService.addApp(appointment);
 		return "appointments";
 	}
