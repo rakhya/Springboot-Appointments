@@ -22,9 +22,8 @@ public class Appointment {
 		
 	}
 	
-	public Appointment(int id, String date, String time, String description) {
+	public Appointment(String date, String time, String description) {
 		super();
-		this.id = id;
 		this.date = date;
 		this.time = time;
 		this.description = description;
@@ -41,7 +40,7 @@ public class Appointment {
 	public String getDate() {
 		return date;
 	}
-	public void setDay(String date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getTime() {

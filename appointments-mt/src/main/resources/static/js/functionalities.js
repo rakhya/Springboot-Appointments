@@ -49,17 +49,7 @@ $(document).ready(function(){
     		event.preventDefault(); 
     	}
     	else{
-    		alert('No errors: Form will be submitted');
-    		var data = {};
-    		keyArr = ["date","time","description"];
-    		var i = 0;
-    		$("form input").each(function() {
-    			 data[keyArr[i]] = $(this).val();
-    			 i = i+1;
-    			});
-    		ajaxPost(data);
-    		event.preventDefault();
-    		location.reload();
+    		alert('No errors: Form data will be submitted');
     	}
     });
     
