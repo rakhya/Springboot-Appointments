@@ -1,4 +1,4 @@
-package com.rakhya.gsu.appointmentsmt;
+package com.rakhya.gsu.appointments;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

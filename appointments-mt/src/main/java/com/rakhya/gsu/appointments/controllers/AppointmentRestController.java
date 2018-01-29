@@ -1,4 +1,4 @@
-package com.rakhya.gsu.appointmentsmt.controllers;
+package com.rakhya.gsu.appointments.controllers;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rakhya.gsu.appointmentsmt.models.Appointment;
-import com.rakhya.gsu.appointmentsmt.services.AppointmentService;
+import com.rakhya.gsu.appointments.models.Appointment;
+import com.rakhya.gsu.appointments.services.AppointmentService;
 
 @CrossOrigin
 @RestController
