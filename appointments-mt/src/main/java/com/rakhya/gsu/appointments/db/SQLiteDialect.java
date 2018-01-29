@@ -1,4 +1,4 @@
-package com.rakhya.gsu.appointmentsmt.db;
+package com.rakhya.gsu.appointments.db;
 
 import java.sql.Types;
 

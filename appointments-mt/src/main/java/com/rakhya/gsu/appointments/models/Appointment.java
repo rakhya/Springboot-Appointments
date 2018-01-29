@@ -1,4 +1,4 @@
-package com.rakhya.gsu.appointmentsmt.models;
+package com.rakhya.gsu.appointments.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
